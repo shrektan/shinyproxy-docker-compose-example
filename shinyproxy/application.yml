@@ -1,0 +1,25 @@
+proxy:
+  title: ShinyProxy
+  port: 8080
+  hide-navbar: false
+  template-path: ./template
+  container-log-path: /container-logs
+  # change this route to your work directory, use absolute path
+  work-directory: /Users/Flynn/Documents/RWD/shinyproxy-docker-compose-example
+  docker:
+    internal-networking: true
+    container-network: "shinyproxy-docker-compose-example_default"
+  specs:
+  - id: test
+    container-cmd: ["R", "-e", "shiny::runApp('/apps/test', host = '0.0.0.0', port = 3838)"]
+    container-image: shrektan/rdocker4working
+    container-network: "${proxy.docker.container-network}"
+    container-volumes: ["${proxy.work-directory}/apps:/apps"]
+
+logging:
+  file:
+    /log/shinyproxy.log
+
+server:
+  servlet:
+    context-path:  /
