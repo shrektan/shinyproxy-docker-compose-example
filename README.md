@@ -9,4 +9,4 @@
 - Tweak docker-compose.yml and shinyproxy/application.yml
 - If you use the `shrektan/rdocker4working` as the container image, remember to `docker pull shrektan/rdocker4working` first
 - Run `docker-compose up --build` in the terminal
-- Direct to 127.0.0.1:8081, you will see the shinyproxy running.
+- Direct to 127.0.0.1:8080, you will see the shinyproxy running.
