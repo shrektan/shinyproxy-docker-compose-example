@@ -3,3 +3,4 @@
 .RData
 .Ruserdata
 shinyproxy-logs
+.DS_Store
