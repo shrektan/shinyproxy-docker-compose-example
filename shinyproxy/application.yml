@@ -4,18 +4,25 @@ proxy:
   hide-navbar: false
   template-path: ./template
   container-log-path: /container-logs
-  # change this route to your work directory, use absolute path
-  work-directory: /Users/Flynn/Documents/RWD/shinyproxy-docker-compose-example
   docker:
     internal-networking: true
     container-network: "shinyproxy-docker-compose-example_default"
   specs:
-  - id: test
+  - id: app-normal
     container-cmd: ["R", "-e", "shiny::runApp('/apps/test', host = '0.0.0.0', port = 3838)"]
     container-image: shrektan/r-production
     container-network: "${proxy.docker.container-network}"
-    container-volumes: ["${proxy.work-directory}/apps:/apps"]
-
+    container-volumes: ["${WORK_DIR}/apps:/apps"]
+  - id: app-not-in-compose
+    container-cmd: ["R", "-e", "shiny::runApp('/apps/test2', host = '0.0.0.0', port = 3838)"]
+    container-image: shrektan/r-production
+    container-network: "${proxy.docker.container-network}"
+    container-volumes: ["${WORK_DIR}/apps:/apps"]    
+  - id: app-in-compose
+    container-image: nginx-forwarder
+    container-network: "${proxy.docker.container-network}"
+    container-env:
+      APP_NAME: app-in-compose
 logging:
   file:
     /log/shinyproxy.log
