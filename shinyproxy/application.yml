@@ -12,7 +12,7 @@ proxy:
   specs:
   - id: test
     container-cmd: ["R", "-e", "shiny::runApp('/apps/test', host = '0.0.0.0', port = 3838)"]
-    container-image: shrektan/rdocker4working
+    container-image: shrektan/r-production
     container-network: "${proxy.docker.container-network}"
     container-volumes: ["${proxy.work-directory}/apps:/apps"]
 
