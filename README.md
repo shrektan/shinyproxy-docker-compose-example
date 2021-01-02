@@ -1,4 +1,10 @@
-# A simple and flexible project to test shinyproxy
+# Deploy Shinyproxy via Docker Compose
+
+## It's a demo of
+
+- Setting up Shinyproxy via docker compose
+- Customizing the home page via a template (see `shinyproxy/fragments/navbar.html`)
+- Deploying a "proxy" app that forwards the traffic to the "global" app, which is deployed via docker compose service
 
 ## How to use
 
