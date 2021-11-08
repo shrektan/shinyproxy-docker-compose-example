@@ -10,6 +10,9 @@
 
 - Clone this repo to a local directory, e.g. `/usr/wd/shinyproxy-docker-compose-example`
 - Copy the shinyproxy jar file (downloaded from shinyproxy.io) to `./shinyproxy/shinyproxy.jar`
+  1. Download the most recent version of shinyproxy (e.g. shinyproxy-2.5.0.jar from https://www.shinyproxy.io/downloads/shinyproxy-2.5.0.jar).
+  1. Rename the .jar file as shinyproxy.jar
+  1. Move the file to shinyproxy-docker-compose-example/shinyproxy/shinyproxy.jar
 - You may want to tweak `docker-compose.yml` and `shinyproxy/application.yml`
 - Run `docker-compose build` to build the necessary images
 - Run `docker-compose up -d` to launch the apps
